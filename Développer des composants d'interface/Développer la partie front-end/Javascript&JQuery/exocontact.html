@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <style>
+          p{color: red;}
+          label{display:block; width:200px ;  float:left;}
+          .centre{margin:0 auto; width:100%}
+      </style>
+      <title>Formulaire de contact</title>
+    </head>
+    <body>
+    <div class="container-fluid">
+    <form name="form1" action="" method="post" onsubmit="Avertissement();">  
+    <fieldset>
+      <legend><b>Vos coordonnées : </b></legend>
+      <p>* Ces zones sont obligatoires pour envoyer le formulaire.</p>
+        <div class="form-group">
+            <label for="société"><b>Société : </b></label>
+            <input type="text" name="société" id="société">
+          </div></br>
+
+          <div class="form-group">
+            <label for="personne"><b>Personne à contacter : </b></label>
+            <input type="text" name="personne" id="personne">
+          </div></br>
+          <span id="err_personne"></span>
+
+          <div class="form-group">
+            <label for="entreprise"><b>Adresse de l'entreprise : </b></label>
+            <textarea name="entreprise" rows="4" cols="30"></textarea>
+          </div></br>
+          <span id="err_entreprise"></span>
+
+          <div class="form-group">
+            <label for="codepostal"><b>Code Postal : </b></label>
+            <input type="text" name="codepostal" id="codepostal">
+          </div></br>
+          <span id="err_codepostal"></span>
+
+          <div class="form-group">
+            <label for="ville"><b>Ville : </b></label>
+            <input type="text" name="ville" id="ville">
+          </div></br>
+          <span id="err_ville"></span>
+
+          <div class="form-group">
+            <label for="mail"><b>E-mail : </b></label>
+            <input type="text" name="mail" id="mail">
+          </div></br>
+          <span id="err_mail"></span>
+
+          <div class="form-group">
+            <label for="téléphone"><b>Téléphone : </b></label>
+            <input type="text" name="téléphone" id="téléphone">
+          </div></br>
+
+          <label for="envmt"><b>Sélectionnez l'environnement technique du projet : </b></br></label><select id="select" name="envmt" size="1" class="form-group" placeholder="Choisissez" onchange="Liste(this.value)">
+            <option>Access</option>
+            <option>Java</option>
+            <option>Delphi</option>
+            <option>Windev</option>
+            <option>Visual Basic</option>
+            <option>Power Builder</option>
+            <option>Internet</option>
+            <option>Intranet</option>
+            <option>Windows NT</option>
+            <option>Unix</option>
+            <option>SQL Server</option>
+            <option>Oracle</option>
+            <option>Autres...</option>
+            </select>
+            <textarea id="environnement"></textarea></br></br>
+    </fieldset>
+            <button type="submit" id="btn_envoyer" class="btn btn-secondary btn-lg">Envoyer</button>   <button type="reset" class="btn btn-secondary btn-lg">Effacer</button>
+      </form>
+    </div>
+      <script src="contact.js">
+      </script>
+    </body>
+</html>

@@ -70,7 +70,8 @@ INSERT INTO lignedecommande (id_commande, id_produit, prix, quantite) VALUES (3,
 INSERT INTO lignedecommande (id_commande, id_produit, prix, quantite) VALUES (3, 2, 10, 2);
 INSERT INTO lignedecommande (id_commande, id_produit, prix, quantite) VALUES (3, 2, 10, 2);
 
-CREATE TRIGGER maj_total AFTER INSERT ON lignedecommande
+CREATE TRIGGER maj_total AFTER INSERT ON lignedecommande OR AFTER UPDATE ON lignedecommande
+OR AFTER DELETE ON lignedecommande
     FOR EACH ROW
     BEGIN
         DECLARE id_c INT;
@@ -79,3 +80,5 @@ CREATE TRIGGER maj_total AFTER INSERT ON lignedecommande
         SET tot = (SELECT sum(prix*quantite) FROM lignedecommande WHERE id_commande=id_c); -- on recalcul le total
         UPDATE commande SET total=tot WHERE id=id_c; -- on stocke le total dans la table commande
 END;
+
+
